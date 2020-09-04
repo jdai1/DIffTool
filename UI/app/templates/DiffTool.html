@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block page_content %}
+<div class="container-fluid">
+    <div id="display" class="row"></div>
+    <div class="row">
+        <div class="col-sm-5 col-md-5 col-lg-5">
+            <div class="container-fluid">
+                <label for="tree">System:</label>
+                <div id="tree" class="tree"></div>
+            </div>
+        </div>
+        <div class="col-sm-5 col-md-5 col-lg-5">
+            <br>
+            <div class="container-fluid">
+                <button id="compare" class="btn btn-primary compare">
+                    <i class="glyphicon glyphicon-pencil"></i>
+                    <span style="margin:1.25em;">DiffTool</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block script %}
+    <script src="{{ url_for('static', filename='bootstrap-treeview/public/js/bootstrap-treeview.js') }}"></script>
+    <script src=" {{ url_for('static', filename='js/DiffTool.js') }} " data="{{data}}"></script>
+{% endblock%}
