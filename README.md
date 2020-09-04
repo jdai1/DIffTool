@@ -83,11 +83,30 @@ Treeview (Features added onto original bootstrap-treeview)
 - **Interactive Display:**
   Displays files of directory within jquery file upload widget, promoting quick
   and simple file uploads, downloads, and deletions.
- 
+  
+Authenication
+- **Firebase Authenication:**
+  The Firebase Authenication Console is used to create users, which are signed in through email 
+  and password. Users can then sign in on the log in screen with their information.
+- **JWT Token:**
+  A JSON Web Token is given to the user to validate api calls made from the client side interactions.
+  The Token is valid for one hour, after which the user will need to log out and log in again.
+
 DiffTool Validation
-
+- **Invalid Selection:**
+  The DiffTool selection flashes an error when:
+  - more than two folders are selected to compare
+  - an incorrect selection is chosen (2 stock folders or 2 wip folders)
+- **Chronological Order:**
+  An error is also displayed when a selected stock folder is older than the selected wip folder
+  
 Status
-
+- **Event Log:**
+  All actions are logged in the status page. These events include:
+  - Adding/deleteing files
+  - Accessing/adding/deleting directories
+  - Successful comparisons
+  
 ## Requirements
 
 - [jQuery](https://jquery.com/) v 3.5.1+
@@ -122,6 +141,13 @@ Then to run the app
 python3.8 app/app.py
 ```
 ### Local Changes
+
+To set up the firebase authenication, you must use an individual api configuration key and private project key. 
+The config api key should be inserted in fbconfig.json and the private key should be inserted in fbAdminConfig.json.
+
+DO NOT SHARE THESE KEYS -- These keys contain information that, if obtained, could allow others to harm the 
+progress of your projects.
+
 In app.py, several variables can be modified to best suit certain circumstances.
 ```python
 app.config['THUMBNAIL_FOLDER'] = '/UI/app/static/local/thumbnail'
